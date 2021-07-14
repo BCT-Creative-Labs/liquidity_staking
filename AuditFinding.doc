@@ -1,0 +1,4 @@
+EonsLP.sol
+burnFrom() -> require to check if allowance available is greater than _amount.
+FeeApprover.sol
+- The following functions should be declared external for gas optimization:initialize,setPaused, setFeeMultiplier, setEonsVaultAddress, sync, calculateAmountsAfterFee, ???
