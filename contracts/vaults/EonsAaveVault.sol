@@ -10,6 +10,7 @@ import '../interfaces/IEonsETH.sol';
 import '../interfaces/IEons.sol';
 import '../interfaces/IWETH.sol';
 import '../interfaces/IEonsAaveRouter.sol';
+import '../interfaces/IEonsAaveVault.sol';
 
 contract EonsAaveVault is OwnableUpgradeable {
   using SafeMathUpgradeable for uint256;
