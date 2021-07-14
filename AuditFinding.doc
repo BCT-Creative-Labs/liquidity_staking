@@ -1,0 +1,7 @@
+EonsLP.sol - burnFrom() -> require to check if allowance available is greater than _amount.
+FeeApprover.sol - The following functions should be declared external for gas optimization:initialize,setPaused, setFeeMultiplier, setEonsVaultAddress, sync, calculateAmountsAfterFee, ???
+IEonsAaveVault needs to be imported into EonsAaveVault.sol (DONE)
+Controller:- In the massUpdateEmissions function, the if statement will always be false as the block.timestamp will always be greater than the block.number. This should probably be initialized as block.number rather than block.timestamp.(DONE)
+In the massUpdateEmissions function, the updateEmissionDistribution function is called from the uniVault contract. However, there is no such function defined in the EonsUniswapRouter contract.
+EonsAaveRouter:- The withdraw function is an external function that has no verifications on the caller. This could lead users to withdraw on behalf of other users. Please add a control here to limit the access to this function. This could simply be done by adding a modifier that checks to see that the msg.sender is the EonsAaveVault address. (DONE)
+EonsAaveVault:- In the withdraw function, there are no checks on the amount the user is withdrawing, so the user would be able to withdraw the total amount in the vault. This logic must be restructured to ensure the user cannot withdraw more than what is due.
